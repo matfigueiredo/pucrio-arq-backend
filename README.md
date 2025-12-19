@@ -92,8 +92,6 @@ uvicorn main:app --reload --host 0.0.0.0 --port 8000
 
 ### Execução com Docker
 
-**Opção 1: Docker direto**
-
 1. Construa a imagem:
 ```bash
 docker build -t tech4bike-backend .
@@ -103,19 +101,6 @@ docker build -t tech4bike-backend .
 ```bash
 docker run -p 8000:8000 tech4bike-backend
 ```
-
-**Opção 2: Docker Compose (recomendado)**
-
-1. Execute com docker-compose:
-```bash
-docker-compose up --build
-```
-
-O docker-compose.yml já está configurado com:
-- Build automático da imagem
-- Porta 8000 exposta
-- Volume para persistência do banco SQLite
-- Restart automático
 
 **Sobre o Dockerfile:**
 
