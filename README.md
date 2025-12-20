@@ -14,7 +14,7 @@ API REST que fornece endpoints para gerenciamento de bicicletas e seus históric
 - **SQLite** - Banco de dados relacional
 - **Pydantic** - Validação de dados
 - **httpx** - Cliente HTTP assíncrono para integração com ViaCEP
-- **UV** - Gerenciador de pacotes Python
+- **UV** - Gerenciador de pacotes Python (Ou o que preferir)
 
 ## Estrutura do Projeto
 
@@ -76,6 +76,8 @@ source .venv/bin/activate  # Linux/Mac
 ```bash
 uv pip install -r requirements.txt
 ```
+
+Você pode optar por executar com poetry, pipenv ou de forma nativa, utilizando python -m venv .venv e depois ativando seu ambiente virtual.
 
 ## Execução
 
