@@ -14,18 +14,24 @@ class ViaCEPService:
             return None
 
         url = f"{ViaCEPService.BASE_URL}/{cleaned_cep}/json/"
+        print(f"Requesting ViaCEP URL: {url}")
 
         try:
-            async with httpx.AsyncClient(timeout=5.0) as client:
-                response = await client.get(url)
+            async with httpx.AsyncClient(timeout=10.0) as client:
+                headers = {"User-Agent": "Tech4Bike/1.0"}
+                response = await client.get(url, headers=headers)
+                print(f"ViaCEP Response Status: {response.status_code}")
+                
                 response.raise_for_status()
                 data = response.json()
 
                 if "erro" in data:
+                    print(f"ViaCEP returned error: {data}")
                     return None
 
                 return AddressResponse(**data)
-        except (httpx.HTTPError, KeyError, ValueError):
+        except Exception as e:
+            print(f"Error requesting ViaCEP: {e}")
             return None
 
     @staticmethod
