@@ -92,14 +92,21 @@ uvicorn main:app --reload --host 0.0.0.0 --port 8000
 
 ### Execução com Docker
 
-1. Construa a imagem:
+O projeto utiliza **Docker Compose** para facilitar a execução. O `docker-compose` utiliza o `Dockerfile` existente para construir a imagem com todas as definições necessárias (portas, volumes, variáveis de ambiente).
+
+1. Inicie o servidor:
 ```bash
-docker build -t tech4bike-backend .
+docker-compose up -d
 ```
 
-2. Execute o container:
+2. Verifique os logs (opcional):
 ```bash
-docker run -p 8000:8000 tech4bike-backend
+docker-compose logs -f
+```
+
+3. Para parar a execução:
+```bash
+docker-compose down
 ```
 
 **Sobre o Dockerfile:**
@@ -257,4 +264,3 @@ curl http://localhost:8000/api/v1/address/01310100
 ## Licença
 
 Este projeto é parte de um MVP acadêmico.
-

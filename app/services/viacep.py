@@ -1,6 +1,8 @@
-import httpx
 from typing import Optional
+
+import httpx
 from app.schemas.address import AddressResponse
+from app.services.awesomeapi import AwesomeAPIService
 
 
 class ViaCEPService:
@@ -26,7 +28,7 @@ class ViaCEPService:
 
                 return AddressResponse(**data)
         except (httpx.HTTPError, KeyError, ValueError):
-            return None
+            return await AwesomeAPIService.get_address_by_cep(cep)
 
     @staticmethod
     def format_address(address: AddressResponse) -> str:
