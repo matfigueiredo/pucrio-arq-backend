@@ -92,21 +92,24 @@ uvicorn main:app --reload --host 0.0.0.0 --port 8000
 
 ### Execução com Docker
 
-O projeto utiliza **Docker Compose** para facilitar a execução. O `docker-compose` utiliza o `Dockerfile` existente para construir a imagem com todas as definições necessárias (portas, volumes, variáveis de ambiente).
+**Para rodar o projeto completo (frontend + backend):** Execute `docker compose up -d` no diretório do frontend. Isso irá subir ambos os serviços automaticamente.
 
-1. Inicie o servidor:
+**Para rodar apenas o backend isoladamente:** Execute no diretório do backend:
+
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
-2. Verifique os logs (opcional):
+O `docker-compose` utiliza o `Dockerfile` existente para construir a imagem com todas as definições necessárias (portas, volumes, variáveis de ambiente).
+
+Para verificar os logs:
 ```bash
-docker-compose logs -f
+docker compose logs -f
 ```
 
-3. Para parar a execução:
+Para parar a execução:
 ```bash
-docker-compose down
+docker compose down
 ```
 
 **Sobre o Dockerfile:**
